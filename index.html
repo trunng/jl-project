@@ -26,7 +26,7 @@
   <header class="top-nav">
     <div class="brand-badge">
       <span class="heart-pulse">❤️</span>
-      <span class="brand-text">Jun & Tri Loi • 2 năm 7 tháng</span>
+      <span class="brand-text">Jun & Tri Loi</span>
     </div>
 
     <div class="audio-control-group">
@@ -74,6 +74,28 @@
           <div class="envelope-seal">Chạm để mở</div>
         </div>
 
+        <!-- Cover Photo (Optional) -->
+        <div class="memory-photo-box cover-photo-box" data-photo-id="photo-cover" data-default-names="cover.jpg,cover.png,cover.jpeg,cover.webp">
+          <div class="photo-placeholder-inner">
+            <span class="photo-icon">💑✨</span>
+            <p class="photo-title">Ảnh bìa kỷ niệm của đôi mình</p>
+            <label class="btn-custom-photo">
+              <span>📷 Thêm ảnh bìa (cover.jpg)</span>
+              <input type="file" accept="image/*" class="photo-input" data-target="photo-cover">
+            </label>
+          </div>
+          <div class="photo-wrapper hidden">
+            <img class="photo-real" alt="Ảnh bìa kỷ niệm Jun & Loi">
+            <div class="photo-overlay-actions">
+              <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+              <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                <span>🔄 Đổi ảnh</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-cover">
+              </label>
+            </div>
+          </div>
+        </div>
+
         <p class="touch-hint">Chạm vào phong thư để bật nhạc và lắng nghe tâm sự của Jun nhé ✨</p>
       </div>
     </section>
@@ -86,16 +108,25 @@
 
         <div class="story-card">
           <!-- Memory Photo Placeholder -->
-          <div class="memory-photo-box" data-photo-id="photo-noel">
+          <div class="memory-photo-box" data-photo-id="photo-noel" data-default-names="noel.jpg,noel.png,noel.jpeg,noel.webp">
             <div class="photo-placeholder-inner">
               <span class="photo-icon">🎄🛵</span>
               <p class="photo-title">Đêm Noel trước KTX Khu B</p>
               <label class="btn-custom-photo">
-                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <span>📷 Thêm ảnh kỷ niệm (noel.jpg)</span>
                 <input type="file" accept="image/*" class="photo-input" data-target="photo-noel">
               </label>
             </div>
-            <img class="photo-real hidden" alt="Ảnh kỷ niệm Noel">
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh kỷ niệm Noel">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-noel">
+                </label>
+              </div>
+            </div>
           </div>
 
           <div class="story-text-body">
@@ -140,16 +171,25 @@
         <h2 class="slide-heading">Cùng Jun đi khắp nẻo đường Sài Gòn</h2>
 
         <div class="story-card">
-          <div class="memory-photo-box" data-photo-id="photo-saigon">
+          <div class="memory-photo-box" data-photo-id="photo-saigon" data-default-names="saigon.jpg,saigon.png,saigon.jpeg,saigon.webp">
             <div class="photo-placeholder-inner">
               <span class="photo-icon">🌆🛵</span>
               <p class="photo-title">Những chiều tan ca Sài Gòn</p>
               <label class="btn-custom-photo">
-                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <span>📷 Thêm ảnh kỷ niệm (saigon.jpg)</span>
                 <input type="file" accept="image/*" class="photo-input" data-target="photo-saigon">
               </label>
             </div>
-            <img class="photo-real hidden" alt="Ảnh kỷ niệm Sài Gòn">
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh kỷ niệm Sài Gòn">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-saigon">
+                </label>
+              </div>
+            </div>
           </div>
 
           <div class="story-text-body">
@@ -187,16 +227,25 @@
         <h2 class="slide-heading">Phong bao lì xì & Nhịp tim lỡ bước</h2>
 
         <div class="story-card">
-          <div class="memory-photo-box" data-photo-id="photo-tet">
+          <div class="memory-photo-box" data-photo-id="photo-tet" data-default-names="tet.jpg,tet.png,tet.jpeg,tet.webp">
             <div class="photo-placeholder-inner">
               <span class="photo-icon">🌸🧧</span>
               <p class="photo-title">Đi dạo vườn hoa ngày Tết</p>
               <label class="btn-custom-photo">
-                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <span>📷 Thêm ảnh kỷ niệm (tet.jpg)</span>
                 <input type="file" accept="image/*" class="photo-input" data-target="photo-tet">
               </label>
             </div>
-            <img class="photo-real hidden" alt="Ảnh kỷ niệm Tết">
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh kỷ niệm Tết">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-tet">
+                </label>
+              </div>
+            </div>
           </div>
 
           <div class="story-text-body">
@@ -237,16 +286,25 @@
         <h2 class="slide-heading">Ngày đôi mình đổi cách xưng hô</h2>
 
         <div class="story-card">
-          <div class="memory-photo-box" data-photo-id="photo-confess">
+          <div class="memory-photo-box" data-photo-id="photo-confess" data-default-names="confess.jpg,confess.png,confess.jpeg,confess.webp">
             <div class="photo-placeholder-inner">
               <span class="photo-icon">🛏️🕯️</span>
               <p class="photo-title">Chiếc giường nhỏ ngày 19/2/2024</p>
               <label class="btn-custom-photo">
-                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <span>📷 Thêm ảnh kỷ niệm (confess.jpg)</span>
                 <input type="file" accept="image/*" class="photo-input" data-target="photo-confess">
               </label>
             </div>
-            <img class="photo-real hidden" alt="Ảnh kỷ niệm ngày tỏ tình">
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh kỷ niệm ngày tỏ tình">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-confess">
+                </label>
+              </div>
+            </div>
           </div>
 
           <div class="story-text-body">
@@ -290,16 +348,25 @@
         <h2 class="slide-heading">Chào đón bé Joi & bé Min</h2>
 
         <div class="story-card">
-          <div class="memory-photo-box" data-photo-id="photo-pets">
+          <div class="memory-photo-box" data-photo-id="photo-pets" data-default-names="pets.jpg,pets.png,pets.jpeg,pets.webp">
             <div class="photo-placeholder-inner">
               <span class="photo-icon">🐶🐱</span>
-              <p class="photo-title">Gia đình 4 thành viên</p>
+              <p class="photo-title">Gia đình 4 thành viên (Joi & Min)</p>
               <label class="btn-custom-photo">
-                <span>📷 Thêm ảnh Joi & Min</span>
+                <span>📷 Thêm ảnh Joi & Min (pets.jpg)</span>
                 <input type="file" accept="image/*" class="photo-input" data-target="photo-pets">
               </label>
             </div>
-            <img class="photo-real hidden" alt="Ảnh bé Joi và bé Min">
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh bé Joi và bé Min">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-pets">
+                </label>
+              </div>
+            </div>
           </div>
 
           <div class="story-text-body">
@@ -351,6 +418,28 @@
             <div class="counter-days" id="live-days-counter">Hơn 940 ngày sánh bước</div>
           </div>
 
+          <!-- Memory Photo Placeholder -->
+          <div class="memory-photo-box" data-photo-id="photo-together" data-default-names="together.jpg,together.png,together.jpeg,together.webp">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">🌧️🤝🌈</span>
+              <p class="photo-title">Khoảnh khắc kiên định bên nhau qua mọi giông bão</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh kỷ niệm (together.jpg)</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-together">
+              </label>
+            </div>
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh 2 năm 7 tháng kiên định bên nhau">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-together">
+                </label>
+              </div>
+            </div>
+          </div>
+
           <div class="story-text-body">
             <p>Trong suốt 2 năm 7 tháng qua, thành thật mà nói tụi mình đã trải qua không ít sóng gió và thử thách.</p>
             <p>Có những lúc giận hờn, có những mâu thuẫn tưởng chừng không có lối ra... nhưng sau tất cả những phong ba
@@ -386,6 +475,28 @@
         <h2 class="slide-heading">Người chị gái & Những lời thương xót</h2>
 
         <div class="story-card">
+          <!-- Memory Photo Placeholder -->
+          <div class="memory-photo-box" data-photo-id="photo-family" data-default-names="family.jpg,family.png,family.jpeg,family.webp">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">🏡🫂</span>
+              <p class="photo-title">Kỷ niệm cùng Chị Hai & Gia đình</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh gia đình (family.jpg)</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-family">
+              </label>
+            </div>
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh kỷ niệm cùng Chị Hai">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-family">
+                </label>
+              </div>
+            </div>
+          </div>
+
           <div class="story-text-body">
             <p>Em còn nhớ như in cái ngày chị biết chuyện hai đứa mình quen nhau. Chị nhắn tin cho em, hỏi han đủ thứ vì
               lo lắng cho hai đứa.</p>
@@ -515,6 +626,28 @@
         <h2 class="slide-heading cursive-huge">Trung thương Loi nhiều lắm...</h2>
 
         <div class="story-card golden-border">
+          <!-- Memory Photo Placeholder -->
+          <div class="memory-photo-box" data-photo-id="photo-ending" data-default-names="ending.jpg,ending.png,ending.jpeg,ending.webp">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">💖✨</span>
+              <p class="photo-title">Bức ảnh nụ cười đẹp nhất mà Jun thương</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh kỷ niệm (ending.jpg)</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-ending">
+              </label>
+            </div>
+            <div class="photo-wrapper hidden">
+              <img class="photo-real" alt="Ảnh kỷ niệm sau cùng">
+              <div class="photo-overlay-actions">
+                <button class="btn-photo-action btn-zoom-photo" title="Xem ảnh lớn">🔍 Xem lớn</button>
+                <label class="btn-photo-action btn-change-photo" title="Chọn ảnh khác">
+                  <span>🔄 Đổi ảnh</span>
+                  <input type="file" accept="image/*" class="photo-input" data-target="photo-ending">
+                </label>
+              </div>
+            </div>
+          </div>
+
           <div class="story-text-body text-center">
             <p class="farewell-lead">Dù sau tất cả quyết định của Loi là gì...</p>
             <p>Tình cảm và sự chân thành này Jun đã dành trọn vẹn cho anh suốt 2 năm 7 tháng qua mà chưa một lần toan
@@ -658,6 +791,16 @@
       <div class="modal-footer">
         <button class="btn-done" id="btn-save-music-settings">Xong</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Photo Lightbox Modal -->
+  <div class="photo-lightbox-modal hidden" id="photo-lightbox" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="btn-close-lightbox" id="btn-close-lightbox" aria-label="Đóng ảnh">✕</button>
+      <img id="lightbox-img" src="" alt="Xem ảnh kỷ niệm">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
     </div>
   </div>
 

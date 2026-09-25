@@ -630,25 +630,107 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // CUSTOM PHOTO UPLOAD & LOCAL STORAGE
+  // CUSTOM PHOTO UPLOAD & LOCAL STORAGE & LIGHTBOX
   // ==========================================
   const savedPhotos = JSON.parse(localStorage.getItem(STORAGE_KEY_PHOTOS) || '{}');
-  
-  // Render previously saved photos if any
-  document.querySelectorAll('.memory-photo-box').forEach(box => {
-    const photoId = box.dataset.photoId;
-    if (savedPhotos[photoId]) {
-      const placeholder = box.querySelector('.photo-placeholder-inner');
-      const realImg = box.querySelector('.photo-real');
-      if (realImg) {
-        realImg.src = savedPhotos[photoId];
-        realImg.classList.remove('hidden');
-        if (placeholder) placeholder.style.display = 'none';
-      }
+
+  function displayBoxPhoto(box, src) {
+    const placeholder = box.querySelector('.photo-placeholder-inner');
+    const photoWrapper = box.querySelector('.photo-wrapper');
+    const realImg = box.querySelector('.photo-real');
+    if (!realImg) return;
+
+    realImg.src = src;
+    if (placeholder) placeholder.style.display = 'none';
+    if (photoWrapper) {
+      photoWrapper.classList.remove('hidden');
+    } else {
+      realImg.classList.remove('hidden');
+    }
+  }
+
+  // Lightbox Elements
+  const lightboxModal = document.getElementById('photo-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const btnCloseLightbox = document.getElementById('btn-close-lightbox');
+  const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+
+  function openLightbox(src, captionText = '') {
+    if (!lightboxModal || !lightboxImg) return;
+    lightboxImg.src = src;
+    if (lightboxCaption) {
+      lightboxCaption.textContent = captionText;
+      lightboxCaption.style.display = captionText ? 'block' : 'none';
+    }
+    lightboxModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightboxModal) return;
+    lightboxModal.classList.add('hidden');
+    if (lightboxImg) lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  if (btnCloseLightbox) btnCloseLightbox.addEventListener('click', closeLightbox);
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal && !lightboxModal.classList.contains('hidden')) {
+      closeLightbox();
     }
   });
 
-  // Handle file inputs for photos
+  // Check and render photos for each memory box
+  document.querySelectorAll('.memory-photo-box').forEach(box => {
+    const photoId = box.dataset.photoId;
+    const defaultNamesStr = box.dataset.defaultNames || '';
+    const candidateFiles = defaultNamesStr.split(',').map(s => s.trim()).filter(Boolean);
+
+    // 1. If photo was previously uploaded and stored in localStorage
+    if (savedPhotos[photoId]) {
+      displayBoxPhoto(box, savedPhotos[photoId]);
+    } else if (candidateFiles.length > 0) {
+      // 2. Try loading local image from images/ folder automatically
+      let found = false;
+      const testNextCandidate = (index) => {
+        if (index >= candidateFiles.length || found) return;
+        const fileName = candidateFiles[index];
+        const testImg = new Image();
+        testImg.onload = () => {
+          if (!found) {
+            found = true;
+            displayBoxPhoto(box, `images/${fileName}`);
+          }
+        };
+        testImg.onerror = () => {
+          testNextCandidate(index + 1);
+        };
+        testImg.src = `images/${fileName}`;
+      };
+      testNextCandidate(0);
+    }
+
+    // Lightbox trigger when clicking image or zoom button
+    const realImg = box.querySelector('.photo-real');
+    const zoomBtn = box.querySelector('.btn-zoom-photo');
+    const boxTitle = box.querySelector('.photo-title') ? box.querySelector('.photo-title').innerText : '';
+
+    if (realImg) {
+      realImg.addEventListener('click', () => {
+        if (realImg.src) openLightbox(realImg.src, boxTitle);
+      });
+    }
+    if (zoomBtn && realImg) {
+      zoomBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (realImg.src) openLightbox(realImg.src, boxTitle);
+      });
+    }
+  });
+
+  // Handle file inputs for custom photos
   document.querySelectorAll('.photo-input').forEach(input => {
     input.addEventListener('change', (e) => {
       const file = e.target.files[0];
@@ -660,20 +742,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const base64 = event.target.result;
         const box = document.querySelector(`.memory-photo-box[data-photo-id="${targetId}"]`);
         if (box) {
-          const placeholder = box.querySelector('.photo-placeholder-inner');
-          const realImg = box.querySelector('.photo-real');
-          if (realImg) {
-            realImg.src = base64;
-            realImg.classList.remove('hidden');
-            if (placeholder) placeholder.style.display = 'none';
-          }
+          displayBoxPhoto(box, base64);
         }
 
         // Save to LocalStorage
         try {
           savedPhotos[targetId] = base64;
           localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(savedPhotos));
-          logInteraction(`Đã thêm ảnh kỷ niệm cho mục: ${targetId}`);
+          logInteraction(`Đã cập nhật ảnh kỷ niệm cho: ${targetId}`);
         } catch (err) {
           console.warn('Image might exceed localStorage quota:', err);
         }

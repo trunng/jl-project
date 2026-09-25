@@ -95,6 +95,8 @@ html, body {
   font-weight: 500;
   color: var(--text-secondary);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .heart-pulse {
@@ -373,6 +375,15 @@ html, body {
 
 .memory-photo-box:hover {
   border-color: var(--primary-rose);
+  box-shadow: 0 8px 24px rgba(244, 114, 182, 0.15);
+}
+
+.cover-photo-box {
+  max-width: 320px;
+  margin: 16px auto 20px;
+  border-radius: var(--radius-lg);
+  border: 1.5px dashed rgba(244, 114, 182, 0.4);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .photo-placeholder-inner {
@@ -380,49 +391,190 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 22px 16px;
+  padding: 24px 16px;
   text-align: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .photo-icon {
   font-size: 2.2rem;
+  filter: drop-shadow(0 2px 8px rgba(244, 114, 182, 0.3));
 }
 
 .photo-title {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
+  line-height: 1.4;
 }
 
 .btn-custom-photo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 7px 16px;
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
-  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
   border: 1px solid var(--bg-glass-border);
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
 }
 
 .btn-custom-photo:hover {
-  background: rgba(244, 114, 182, 0.2);
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.3), rgba(251, 146, 60, 0.3));
   color: #fff;
   border-color: var(--primary-rose);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(244, 114, 182, 0.25);
 }
 
 .photo-input {
   display: none;
 }
 
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #000;
+}
+
 .photo-real {
   width: 100%;
-  max-height: 320px;
+  max-height: 380px;
   object-fit: cover;
   border-radius: var(--radius-md);
   display: block;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.photo-wrapper:hover .photo-real {
+  transform: scale(1.025);
+}
+
+.photo-overlay-actions {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+.photo-wrapper:hover .photo-overlay-actions {
+  opacity: 1;
+}
+
+.btn-photo-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(10, 15, 30, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-photo-action:hover {
+  background: rgba(244, 114, 182, 0.8);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Lightbox Modal */
+.photo-lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 15, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 2;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: zoomLightbox 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes zoomLightbox {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-caption {
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-style: italic;
+  text-align: center;
+  max-width: 600px;
+}
+
+.btn-close-lightbox {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-close-lightbox:hover {
+  background: var(--primary-rose);
+  transform: rotate(90deg);
 }
 
 .hidden {
@@ -1536,6 +1688,22 @@ input:checked + .switch-slider:before {
     grid-template-columns: 1fr;
   }
   
+  .top-nav {
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .brand-badge {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .pill-btn.music-btn {
+    padding: 6px 11px;
+    font-size: 0.8rem;
+  }
+
   .dock-btn .nav-text {
     display: none;
   }
