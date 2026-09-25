@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Gửi Tri Loi - Từ Jun của anh</title>
+  <meta name="description"
+    content="Chặng đường 2 năm 7 tháng và những điều Jun cất giữ trong tim muốn gửi đến Tri Loi.">
+
+  <!-- Google Fonts: Be Vietnam Pro + Dancing Script + Playfair Display for romance & elegance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Ambient Canvas Background (Stardust & Floating Hearts) -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Background Music Control Bar (Fixed Floating Header) -->
+  <header class="top-nav">
+    <div class="brand-badge">
+      <span class="heart-pulse">❤️</span>
+      <span class="brand-text">Jun & Tri Loi • 2 năm 7 tháng</span>
+    </div>
+
+    <div class="audio-control-group">
+      <button id="btn-toggle-music" class="pill-btn music-btn" title="Bật/Tắt nhạc nền"
+        aria-label="Bật hoặc tắt nhạc nền">
+        <span class="music-icon" id="music-icon">🎵</span>
+        <span id="music-status-text">Bật nhạc</span>
+        <div class="music-eq" id="music-eq">
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+        </div>
+      </button>
+
+      <button id="btn-music-modal" class="icon-circle-btn" title="Chọn bài hát / tải nhạc riêng"
+        aria-label="Cài đặt nhạc">
+        ⚙️
+      </button>
+    </div>
+  </header>
+
+  <!-- Progress Bar at Top -->
+  <div class="story-progress-container">
+    <div class="story-progress-bar" id="story-progress-bar"></div>
+  </div>
+
+  <!-- Main Slide Container -->
+  <main class="story-viewport" id="story-viewport">
+
+    <!-- SLIDE 0: Welcome / Envelope Gate -->
+    <section class="story-slide active" data-slide-index="0" id="slide-0">
+      <div class="slide-content envelope-gate">
+        <div class="envelope-badge">Dành riêng cho Tri Loi</div>
+        <h1 class="main-title">Tri Loi ơii...</h1>
+        <p class="subtitle cursive">"Có những ký ức, dù đi qua bao mùa gió, vẫn vẹn nguyên như ngày đầu tiên..."</p>
+
+        <div class="interactive-envelope" id="gate-envelope" role="button" tabindex="0">
+          <div class="envelope-back"></div>
+          <div class="letter-preview">
+            <span class="letter-heart">💌</span>
+            <span class="letter-line"></span>
+            <span class="letter-line short"></span>
+          </div>
+          <div class="envelope-front"></div>
+          <div class="envelope-seal">Chạm để mở</div>
+        </div>
+
+        <p class="touch-hint">Chạm vào phong thư để bật nhạc và lắng nghe tâm sự của Jun nhé ✨</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 1: Noel & KTX Khu B -->
+    <section class="story-slide" data-slide-index="1" id="slide-1">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Kỷ niệm 01 • Giáng Sinh Ấy</div>
+        <h2 class="slide-heading">Noel năm ấy... anh còn nhớ hong?</h2>
+
+        <div class="story-card">
+          <!-- Memory Photo Placeholder -->
+          <div class="memory-photo-box" data-photo-id="photo-noel">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">🎄🛵</span>
+              <p class="photo-title">Đêm Noel trước KTX Khu B</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-noel">
+              </label>
+            </div>
+            <img class="photo-real hidden" alt="Ảnh kỷ niệm Noel">
+          </div>
+
+          <div class="story-text-body">
+            <p><strong>Tri Loi ơi,</strong> anh có còn nhớ tụi mình gặp nhau vào lúc nào hong?</p>
+            <p>Jun vẫn còn nhớ như in cái ngày anh dừng xe trước cổng <strong>KTX khu B</strong> đón Jun đi chơi Noel.
+              Đêm hôm ấy gió se lạnh, nhưng ngồi sau xe anh ấm áp lạ thường.</p>
+            <p>Anh chở Jun đi ăn <strong>Pizza 4P's</strong>, tự tay đeo vào tay Jun chiếc vòng đôi nhỏ xinh, rồi ghé
+              tai hứa sau này <em>sẽ luôn làm ông già Santa của riêng Jun</em> mỗi khi Giáng sinh về.</p>
+            <p>Ăn xong, hai đứa mình ngồi bệt trước hiên <strong>Nhà thờ Đức Bà</strong>, vừa ngắm dòng người qua lại
+              vừa leo vài ván Liên Quân... Những điều giản đơn đầu tiên ấy, Jun khắc sâu trong lòng chưa từng quên.</p>
+          </div>
+
+          <!-- Fun Interactive 1: Noel Gift Box -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">✨</span>
+              <span>Tương tác nhỏ: Hộp quà Santa tặng Jun</span>
+            </div>
+            <div class="widget-body">
+              <button class="action-bubble-btn" id="btn-open-noel-gift">
+                🎁 Mở chiếc hộp quà Giáng Sinh
+              </button>
+              <div class="widget-reveal-box hidden" id="noel-gift-reveal">
+                <div class="gift-animation-content">
+                  <div class="glowing-bracelet">💍💫💍</div>
+                  <p class="sweet-quote">"Vòng đôi trên tay & Lời hứa làm Santa của Jun suốt những mùa Noel về sau."</p>
+                  <button class="mini-reaction-btn" data-reaction="noel-promise">
+                    ❤️ Loi có còn nhớ lời hứa này hong?
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Saigon & Những chiều tan sở -->
+    <section class="story-slide" data-slide-index="2" id="slide-2">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Kỷ niệm 02 • Phía Sau Tay Lái</div>
+        <h2 class="slide-heading">Cùng Jun đi khắp nẻo đường Sài Gòn</h2>
+
+        <div class="story-card">
+          <div class="memory-photo-box" data-photo-id="photo-saigon">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">🌆🛵</span>
+              <p class="photo-title">Những chiều tan ca Sài Gòn</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-saigon">
+              </label>
+            </div>
+            <img class="photo-real hidden" alt="Ảnh kỷ niệm Sài Gòn">
+          </div>
+
+          <div class="story-text-body">
+            <p>Đến khi Jun chính thức lên Sài Gòn làm việc, bỡ ngỡ giữa phố xá đông đúc, luôn có Tri Loi đồng hành.</p>
+            <p>Cứ mỗi chiều tan làm, vừa bước chân ra đã thấy chiếc xe của anh chờ sẵn. Anh chở Jun đi khắp cùng ngõ
+              hẻm, dạo qua từng con đường rợp mát bóng cây.</p>
+            <p>Được ôm anh từ phía sau, nghe gió thổi lùa qua mái tóc và ríu rít kể nhau nghe những chuyện buồn vui
+              trong ngày... Jun thấy mình thật sự bình yên và hạnh phúc biết bao.</p>
+          </div>
+
+          <!-- Fun Interactive 2: Scooter Drive -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">🛵</span>
+              <span>Tương tác nhỏ: Bác tài Tri Loi ơi, đi dạo thôi!</span>
+            </div>
+            <div class="widget-body">
+              <button class="action-bubble-btn" id="btn-drive-scooter">
+                💨 Nhấn còi đón Jun đi hóng gió nào (Bíp bíp)
+              </button>
+              <div class="road-track" id="road-track">
+                <div class="moving-scooter" id="moving-scooter">🛵💨💕</div>
+              </div>
+              <p class="road-subtext" id="road-subtext">Nhấn để xe lăn bánh cùng những trái tim bay!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Mùa hoa Tết & Nhịp rung động -->
+    <section class="story-slide" data-slide-index="3" id="slide-3">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Kỷ niệm 03 • Mùa Hoa Tết</div>
+        <h2 class="slide-heading">Phong bao lì xì & Nhịp tim lỡ bước</h2>
+
+        <div class="story-card">
+          <div class="memory-photo-box" data-photo-id="photo-tet">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">🌸🧧</span>
+              <p class="photo-title">Đi dạo vườn hoa ngày Tết</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-tet">
+              </label>
+            </div>
+            <img class="photo-real hidden" alt="Ảnh kỷ niệm Tết">
+          </div>
+
+          <div class="story-text-body">
+            <p>Jun nhớ mãi cái lúc <strong>mẹ Mai và dì Tư</strong> lên Sài Gòn ăn Tết.</p>
+            <p>Có một người đã lén hẹn Jun ra chỉ để tận tay trao phong bao lì xì đầu năm, rồi dắt tay Jun đi dạo giữa
+              vườn hoa rực rỡ sắc xuân.</p>
+            <p>Ánh mắt ấm áp của anh hôm ấy dịu dàng đến nao lòng. Thật lòng lúc đó, khi bước đi bên anh giữa ngập tràn
+              hương hoa, Jun biết trái tim mình đã hoàn toàn <strong>rung động vì Tri Loi</strong> rồi.</p>
+          </div>
+
+          <!-- Fun Interactive 3: Open Red Envelope -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">🧧</span>
+              <span>Tương tác nhỏ: Rút bao lì xì của Loi</span>
+            </div>
+            <div class="widget-body">
+              <div class="lucky-envelope-wrapper">
+                <button class="lucky-envelope-btn" id="btn-open-lucky">
+                  <span class="envelope-gold">Phúc Lộc</span>
+                  <span class="envelope-tap">Chạm để mở lì xì 🧧</span>
+                </button>
+                <div class="lucky-wish-reveal hidden" id="lucky-wish-reveal">
+                  <p class="wish-text">"Năm mới mong Jun luôn cười thật tươi, bình yên bên cạnh anh..."</p>
+                  <span class="falling-coins">✨🌸🪙🌸✨</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: 19/02/2024 - Ngày chính thức -->
+    <section class="story-slide" data-slide-index="4" id="slide-4">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Kỷ niệm 04 • 19 Tháng 02 Năm 2024</div>
+        <h2 class="slide-heading">Ngày đôi mình đổi cách xưng hô</h2>
+
+        <div class="story-card">
+          <div class="memory-photo-box" data-photo-id="photo-confess">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">🛏️🕯️</span>
+              <p class="photo-title">Chiếc giường nhỏ ngày 19/2/2024</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh kỷ niệm này</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-confess">
+              </label>
+            </div>
+            <img class="photo-real hidden" alt="Ảnh kỷ niệm ngày tỏ tình">
+          </div>
+
+          <div class="story-text-body">
+            <p>Vừa về sau Tết, Tri Loi có nhắn tin tỏ tình với Jun... Nhưng Jun muốn được nghe anh nói trực tiếp kia.
+            </p>
+            <p>Thật ra lúc đó, trong tim Jun đã thầm gật đầu đồng ý cả trăm lần rồi.</p>
+            <p>Để rồi hôm <strong>19/02/2024</strong>, khi vừa lên tới phòng trọ, hai đứa nằm cạnh nhau trên giường. Anh
+              nhìn thẳng vào mắt em và tỏ tình lần nữa... Thế là tụi mình ngượng ngùng đổi cách xưng hô thành <em>"anh -
+                em"</em> :3</p>
+            <p>Giây phút ấy, cả thế giới như thu bé lại chỉ vừa vặn trong căn phòng nhỏ ấm cúng của đôi mình.</p>
+          </div>
+
+          <!-- Fun Interactive 4: Pronoun Switcher -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">💞</span>
+              <span>Tương tác nhỏ: Công tắc đổi xưng hô ngọt ngào</span>
+            </div>
+            <div class="widget-body text-center">
+              <div class="pronoun-toggle-box">
+                <span class="pronoun-label">Bạn bè / Jun & Loi</span>
+                <label class="switch-ui">
+                  <input type="checkbox" id="pronoun-switch" checked>
+                  <span class="switch-slider"></span>
+                </label>
+                <span class="pronoun-label highlight">Anh & Em (19/02/2024)</span>
+              </div>
+              <div class="pronoun-message" id="pronoun-message">
+                "Từ hôm nay, gọi anh là anh nhé... còn em là bé người yêu của anh! 💕"
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Bé Joi & Bé Min (Gia đình 4 người) -->
+    <section class="story-slide" data-slide-index="5" id="slide-5">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Kỷ niệm 05 • Tổ Ấm 4 Người</div>
+        <h2 class="slide-heading">Chào đón bé Joi & bé Min</h2>
+
+        <div class="story-card">
+          <div class="memory-photo-box" data-photo-id="photo-pets">
+            <div class="photo-placeholder-inner">
+              <span class="photo-icon">🐶🐱</span>
+              <p class="photo-title">Gia đình 4 thành viên</p>
+              <label class="btn-custom-photo">
+                <span>📷 Thêm ảnh Joi & Min</span>
+                <input type="file" accept="image/*" class="photo-input" data-target="photo-pets">
+              </label>
+            </div>
+            <img class="photo-real hidden" alt="Ảnh bé Joi và bé Min">
+          </div>
+
+          <div class="story-text-body">
+            <p>Rồi tụi mình cùng nhau đón <strong>bé Joi</strong> về nhà, rồi sau đó tới <strong>bé Min</strong>...</p>
+            <p>Thế là từ hai người trẻ thương nhau, tụi mình chính thức trở thành <strong>gia đình nhỏ 4 thành
+                viên</strong> đầy ắp tiếng cười.</p>
+            <p>Có thêm những đứa con nhỏ, có thêm trách nhiệm, nhưng cũng có thêm muôn vàn niềm vui mỗi khi về nhà thấy
+              hai bé quấn quýt bên chân anh và em.</p>
+          </div>
+
+          <!-- Fun Interactive 5: Pet cuddling -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">🐾</span>
+              <span>Tương tác nhỏ: Xoa đầu Joi & Min</span>
+            </div>
+            <div class="widget-body">
+              <div class="pet-cuddle-area">
+                <button class="pet-card-btn" id="btn-pet-joi">
+                  <span class="pet-avatar">🐶</span>
+                  <span class="pet-name">Bé Joi</span>
+                  <span class="pet-action">Xoa đầu em cái nè!</span>
+                  <span class="pet-count" id="joi-pet-count">Đã cưng: 0 lần</span>
+                </button>
+
+                <button class="pet-card-btn" id="btn-pet-min">
+                  <span class="pet-avatar">🐱</span>
+                  <span class="pet-name">Bé Min</span>
+                  <span class="pet-action">Gãi cằm em meo meo!</span>
+                  <span class="pet-count" id="min-pet-count">Đã cưng: 0 lần</span>
+                </button>
+              </div>
+              <p class="pet-chat-bubble hidden" id="pet-speech"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: 2 Năm 7 Tháng Sóng Gió -->
+    <section class="story-slide" data-slide-index="6" id="slide-6">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Kỷ niệm 06 • Thử Thách Thời Gian</div>
+        <h2 class="slide-heading">2 năm 7 tháng chọn ở lại vì nhau</h2>
+
+        <div class="story-card">
+          <div class="counter-highlight-box">
+            <div class="counter-number">2 Năm 7 Tháng</div>
+            <div class="counter-days" id="live-days-counter">Hơn 940 ngày sánh bước</div>
+          </div>
+
+          <div class="story-text-body">
+            <p>Trong suốt 2 năm 7 tháng qua, thành thật mà nói tụi mình đã trải qua không ít sóng gió và thử thách.</p>
+            <p>Có những lúc giận hờn, có những mâu thuẫn tưởng chừng không có lối ra... nhưng sau tất cả những phong ba
+              bão táp ấy, <strong>tụi mình vẫn luôn chọn ở lại vì nhau</strong>.</p>
+            <p>Bởi vì chúng ta từng trân trọng nhau hơn mọi điều, từng tin rằng không có khó khăn nào có thể chia cắt
+              được đôi mình.</p>
+          </div>
+
+          <!-- Fun Interactive 6: Hold Umbrella Through Storm -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">🌧️🌈</span>
+              <span>Tương tác nhỏ: Chiếc ô che bão giông</span>
+            </div>
+            <div class="widget-body text-center">
+              <button class="action-bubble-btn" id="btn-hold-umbrella">
+                ☂️ Cùng nhau che ô qua ngày mưa giông
+              </button>
+              <div class="storm-sky-box" id="storm-sky-box">
+                <span id="sky-icon">🌧️⚡</span>
+                <p id="sky-status-text">Bão giông nào rồi cũng sẽ tan...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Gia Đình & Lời Chị Dặn -->
+    <section class="story-slide" data-slide-index="7" id="slide-7">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Kỷ niệm 07 • Tình Thân</div>
+        <h2 class="slide-heading">Người chị gái & Những lời thương xót</h2>
+
+        <div class="story-card">
+          <div class="story-text-body">
+            <p>Em còn nhớ như in cái ngày chị biết chuyện hai đứa mình quen nhau. Chị nhắn tin cho em, hỏi han đủ thứ vì
+              lo lắng cho hai đứa.</p>
+            <p>Tới tận hôm qua, <strong>chị còn gọi điện cho em...</strong></p>
+            <div class="sister-quote-card">
+              <div class="quote-mark">“</div>
+              <p class="sister-quote">
+                "Rõ ràng lúc nó quen em, nó hứa với chị nhiều lắm... Chị biết em của chị nó không đúng với em. Em mất đi
+                1 người bạn đồng hành, nhưng bù lại em có thêm 1 người chị hai."
+              </p>
+            </div>
+            <p>Nghe chị nói, lòng em thắt lại vì xót xa... Em biết cả gia đình đều từng mong hai đứa mình hạnh phúc.</p>
+          </div>
+
+          <!-- Interactive 7: Sister message -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">💌</span>
+              <span>Tương tác: Bức thư tay từ Chị</span>
+            </div>
+            <div class="widget-body text-center">
+              <button class="action-bubble-btn" id="btn-read-sister">
+                📖 Đọc lại lời nhắn gửi của Chị
+              </button>
+              <div class="sister-card-reveal hidden" id="sister-card-reveal">
+                <p><em>"Chị mong dù có ra sao, cả hai đứa cũng phải sống thật tử tế và không phải hối tiếc vì bất cứ
+                    điều gì."</em></p>
+                <button class="mini-reaction-btn" data-reaction="sister-care">
+                  ❤️ Em vẫn luôn biết ơn Chị rất nhiều...
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Khoảng Trống & Người Mới -->
+    <section class="story-slide" data-slide-index="8" id="slide-8">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Nỗi Lòng 08 • Khoảng Trống</div>
+        <h2 class="slide-heading">Có phải để quên em nhanh hơn?</h2>
+
+        <div class="story-card deep-night">
+          <div class="story-text-body">
+            <p>Loi tỏ tình với em được, hứa với em biết bao nhiêu điều...</p>
+            <p>Em chỉ mong nếu thật sự hết tình cảm với em, <strong>Loi hãy nói thẳng cho em biết</strong>. Em cần biết
+              suy nghĩ chân thật của anh, chứ không phải chỉ là một vài lời lạnh lùng buông xuôi, rồi bắt em phải lập
+              tức từ bỏ người mà em đã từng xem là <strong>gia đình ruột thịt</strong>.</p>
+            <p class="heartbreak-highlight">
+              Loi quen người mới nhanh như vậy... có phải là để bù đắp lại sự trống vắng khi không còn em bên cạnh? Hay
+              là để cố quên em nhanh hơn?
+            </p>
+          </div>
+
+          <!-- Interactive 8: Honest Question for Loi -->
+          <div class="interactive-widget question-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">💭</span>
+              <span>Câu hỏi nhỏ Jun muốn hỏi Loi:</span>
+            </div>
+            <div class="widget-body">
+              <p class="poll-question">Loi có thật sự cảm thấy lòng mình thanh thản lúc này hong?</p>
+              <div class="poll-options" id="poll-options">
+                <button class="poll-btn" data-choice="roi-boi">
+                  🌪️ Anh thấy trong lòng còn nhiều rối bời...
+                </button>
+                <button class="poll-btn" data-choice="trong-vang">
+                  🍂 Thật ra có những lúc rất trống vắng...
+                </button>
+                <button class="poll-btn" data-choice="khong-biet">
+                  💭 Anh cũng không biết bản thân đang muốn gì...
+                </button>
+              </div>
+              <div class="poll-feedback hidden" id="poll-feedback">
+                <p class="feedback-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Chậm Lại Một Chút... -->
+    <section class="story-slide" data-slide-index="9" id="slide-9">
+      <div class="slide-content">
+        <div class="slide-chapter-tag">Nỗi Lòng 09 • Chậm Lại Một Nhịp</div>
+        <h2 class="slide-heading">Nhìn về người từng dốc cạn lòng...</h2>
+
+        <div class="story-card">
+          <div class="story-text-body">
+            <p>Em luôn tin trong lòng Loi <strong>vẫn còn thương em</strong>... Nhưng tình thương ấy lúc này dường như
+              chưa đủ lớn để giúp anh vượt qua những rung động nhất thời.</p>
+            <p>Trung biết rằng trong Loi hiện tại đang có rất nhiều suy nghĩ ngổn ngang...</p>
+            <p class="heart-plea"><strong>Loi chậm lại một chút, nhìn về vợ được không?</strong></p>
+            <p>Loi ơi, có thể người mới mang tới cho anh sự mới mẻ, những cảm xúc mới lạ. Nhưng <strong>em cũng đã từng
+                là người mà Loi hết mình theo đuổi để có được</strong>...</p>
+            <p><em>Vậy sao Loi không thử một lần, tìm lại cảm xúc với người đã hết lòng vì mình đi?</em></p>
+          </div>
+
+          <!-- Interactive 9: Slow Down Pulse -->
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <span class="sparkle-icon">⏳</span>
+              <span>Tương tác: Dành 10 giây chậm lại để lắng nghe tiếng lòng</span>
+            </div>
+            <div class="widget-body text-center">
+              <button class="action-bubble-btn" id="btn-slow-down">
+                🕊️ Bấm vào đây để thở chậm lại 1 nhịp cùng Jun
+              </button>
+              <div class="breathe-circle-container hidden" id="breathe-circle-container">
+                <div class="breathe-circle" id="breathe-circle">
+                  <span class="breathe-text" id="breathe-text">Hít vào...</span>
+                </div>
+                <p class="breathe-caption">Hãy nhớ lại những khoảnh khắc bình yên nhất của hai đứa mình...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Lời Nhắn Cuối & Hộp Thư Phản Hồi Cho Trung -->
+    <section class="story-slide" data-slide-index="10" id="slide-10">
+      <div class="slide-content slide-ending">
+        <div class="slide-chapter-tag">Sau Cùng • Lời Từ Trái Tim</div>
+        <h2 class="slide-heading cursive-huge">Trung thương Loi nhiều lắm...</h2>
+
+        <div class="story-card golden-border">
+          <div class="story-text-body text-center">
+            <p class="farewell-lead">Dù sau tất cả quyết định của Loi là gì...</p>
+            <p>Tình cảm và sự chân thành này Jun đã dành trọn vẹn cho anh suốt 2 năm 7 tháng qua mà chưa một lần toan
+              tính.</p>
+            <p class="big-romantic-quote">
+              "Nếu một ngày anh mỏi mệt giữa những mới mẻ ngoài kia, xin hãy nhớ rằng nơi này từng có một người xem anh
+              là cả gia đình."
+            </p>
+          </div>
+
+          <!-- Interactive 10: Send Response Back to Trung -->
+          <div class="response-portal-widget">
+            <div class="portal-header">
+              <span>💌 Loi gửi đôi lời nhắn lại cho Jun nhé:</span>
+            </div>
+
+            <div class="quick-feeling-tags">
+              <button class="feeling-tag" data-msg="Anh đã đọc hết từng câu từng chữ rồi...">
+                🥺 Đã đọc hết rồi
+              </button>
+              <button class="feeling-tag" data-msg="Anh xin lỗi Jun nhiều lắm...">
+                💔 Anh xin lỗi em
+              </button>
+              <button class="feeling-tag" data-msg="Cho anh thêm thời gian để suy nghĩ chín chắn nhé...">
+                ⏳ Cho anh thời gian
+              </button>
+              <button class="feeling-tag" data-msg="Anh muốn gặp Jun để nói chuyện trực tiếp...">
+                ☕ Muốn gặp Jun
+              </button>
+            </div>
+
+            <div class="response-input-area">
+              <textarea id="loi-reply-input" placeholder="Viết những suy nghĩ thật lòng của Loi vào đây..."
+                rows="3"></textarea>
+
+              <div class="response-actions">
+                <button id="btn-save-reply" class="btn-primary-send">
+                  💾 Lưu & Gửi cho Jun
+                </button>
+                <button id="btn-open-zalo" class="btn-secondary-chat">
+                  💬 Gửi qua Zalo / Tin nhắn
+                </button>
+              </div>
+            </div>
+
+            <div class="reply-status-message hidden" id="reply-status-message">
+              ✅ Lời nhắn của anh đã được ghi lại trong tim Jun!
+            </div>
+          </div>
+
+          <!-- Virtual Warm Hug Button -->
+          <div class="virtual-hug-container">
+            <button class="btn-virtual-hug" id="btn-virtual-hug">
+              🫂 Gửi 1 cái ôm cho Jun
+            </button>
+            <span class="hug-counter" id="hug-counter">Đã nhận được 0 cái ôm ấm áp</span>
+          </div>
+
+          <!-- View History of Responses (for Trung or Loi) -->
+          <div class="response-log-accordion">
+            <button class="btn-accordion-toggle" id="btn-view-logs">
+              📝 Xem nhật ký phản hồi & tương tác
+            </button>
+            <div class="log-content-box hidden" id="log-content-box">
+              <div class="log-list" id="log-list">
+                <p class="empty-log">Chưa có tương tác nào được ghi lại.</p>
+              </div>
+              <button class="btn-clear-logs" id="btn-clear-logs">Xóa dữ liệu thử nghiệm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Dock -->
+  <footer class="bottom-dock">
+    <button class="dock-btn nav-btn" id="btn-prev-slide" aria-label="Slide trước">
+      <span class="arrow">‹</span>
+      <span class="nav-text">Quay lại</span>
+    </button>
+
+    <div class="slide-dots-container" id="slide-dots-container">
+      <!-- Generated via JS for all slides -->
+    </div>
+
+    <button class="dock-btn nav-btn primary-next" id="btn-next-slide" aria-label="Slide kế tiếp">
+      <span class="nav-text">Tiếp theo</span>
+      <span class="arrow">›</span>
+    </button>
+  </footer>
+
+  <!-- Floating Heart Burst Container -->
+  <div class="heart-burst-container" id="heart-burst-container" pointer-events="none"></div>
+
+  <!-- Music Selection Modal -->
+  <div class="modal-overlay hidden" id="music-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Giai Điệu & Âm Nhạc</h3>
+        <button class="btn-close-modal" id="btn-close-music-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Trang web tích hợp sẵn tiếng dương cầm du dương không cần mạng. Bạn cũng có thể tải bài
+          hát kỷ niệm của 2 đứa lên:</p>
+
+        <div class="soundtrack-selector">
+          <label class="radio-track">
+            <input type="radio" name="soundtrack-choice" value="piano-ambient" checked>
+            <span class="radio-custom"></span>
+            <span class="track-info">
+              <strong>🎹 Piano Dịu Dàng (Tự động tạo âm thanh)</strong>
+              <small>Giai điệu da diết, êm ái viết bằng Web Audio API</small>
+            </span>
+          </label>
+
+          <label class="radio-track">
+            <input type="radio" name="soundtrack-choice" value="custom-file">
+            <span class="radio-custom"></span>
+            <span class="track-info">
+              <strong>📁 Tải lên bài hát của riêng 2 đứa (.mp3)</strong>
+              <small>Bài hát kỷ niệm mà Loi và Jun thích nhất</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="custom-music-uploader hidden" id="custom-music-uploader">
+          <label class="file-upload-box">
+            <span class="upload-icon">🎵</span>
+            <span id="custom-music-filename">Bấm để chọn file MP3 từ máy bạn</span>
+            <input type="file" id="music-file-input" accept="audio/*">
+          </label>
+        </div>
+
+        <div class="volume-slider-group">
+          <span>Âm lượng:</span>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.7">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-done" id="btn-save-music-settings">Xong</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
