@@ -30,6 +30,103 @@ document.addEventListener('DOMContentLoaded', () => {
   const heartBurstContainer = document.getElementById('heart-burst-container');
 
   // ==========================================
+  // PASSCODE LOCK SCREEN GATE (NGÀY QUEN NHAU: 19/02/2024)
+  // ==========================================
+  const STORAGE_KEY_UNLOCKED = 'jl_unlocked_session';
+  const lockScreen = document.getElementById('lock-screen');
+  const lockForm = document.getElementById('lock-form');
+  const lockInput = document.getElementById('lock-passcode-input');
+  const lockFeedback = document.getElementById('lock-feedback');
+  const lockIconEmoji = document.getElementById('lock-icon-emoji');
+  const lockCard = document.querySelector('.lock-card');
+
+  function isPasscodeValid(rawInput) {
+    if (!rawInput) return false;
+    const clean = rawInput.toLowerCase().replace(/[\s\/\-\.\,\:]/g, '');
+    const validVariants = [
+      '19022024',
+      '190224',
+      '1902',
+      '1922024',
+      '19224',
+      '192'
+    ];
+    return validVariants.includes(clean);
+  }
+
+  // Check if previously unlocked in this session
+  if (sessionStorage.getItem(STORAGE_KEY_UNLOCKED) === 'true') {
+    if (lockScreen) lockScreen.classList.add('hidden');
+  }
+
+  function handleUnlockAttempt() {
+    if (!lockInput) return;
+    const value = lockInput.value.trim();
+
+    if (isPasscodeValid(value)) {
+      // SUCCESS!
+      if (lockFeedback) {
+        lockFeedback.className = 'lock-feedback success';
+        lockFeedback.innerText = 'Chính xác rồi! Mở khóa bức thư tình yêu... ❤️';
+        lockFeedback.classList.remove('hidden');
+      }
+      if (lockIconEmoji) lockIconEmoji.innerText = '🔓';
+
+      // Play chime if available
+      if (window.romanticAudio) {
+        window.romanticAudio.playChime('bell');
+      }
+
+      // Burst of floating hearts
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const rx = window.innerWidth / 2 + (Math.random() - 0.5) * 220;
+          const ry = window.innerHeight / 2 + (Math.random() - 0.5) * 160;
+          createFloatingHeart(rx, ry);
+        }, i * 60);
+      }
+
+      logInteraction('Trí Lợi đã nhập đúng mật khẩu và mở khóa trang web 🔓', value);
+      sessionStorage.setItem(STORAGE_KEY_UNLOCKED, 'true');
+
+      setTimeout(() => {
+        if (lockScreen) {
+          lockScreen.classList.add('unlocked');
+          setTimeout(() => {
+            lockScreen.classList.add('hidden');
+          }, 600);
+        }
+      }, 700);
+
+    } else {
+      // FAILED
+      if (lockCard) {
+        lockCard.classList.remove('shake-animation');
+        void lockCard.offsetWidth; // Trigger reflow
+        lockCard.classList.add('shake-animation');
+      }
+
+      if (lockFeedback) {
+        lockFeedback.className = 'lock-feedback error';
+        lockFeedback.innerText = 'Mật mã chưa đúng rồi... Anh có nhớ ngày tụi mình thành đôi hong? 🥺';
+        lockFeedback.classList.remove('hidden');
+      }
+
+      if (lockInput) {
+        lockInput.focus();
+        lockInput.select();
+      }
+    }
+  }
+
+  if (lockForm) {
+    lockForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleUnlockAttempt();
+    });
+  }
+
+  // ==========================================
   // INITIALIZE DOTS & PROGRESS
   // ==========================================
   dotsContainer.innerHTML = '';

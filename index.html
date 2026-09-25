@@ -19,6 +19,43 @@
 </head>
 
 <body>
+  <!-- Passcode Lock Screen Gate -->
+  <div class="lock-screen-overlay" id="lock-screen" role="dialog" aria-modal="true">
+    <div class="lock-backdrop"></div>
+    <div class="lock-card">
+      <div class="lock-icon-wrap" id="lock-icon-wrap">
+        <span class="lock-icon-emoji" id="lock-icon-emoji">🔒</span>
+        <div class="lock-glow"></div>
+      </div>
+      
+      <div class="lock-header">
+        <span class="lock-badge">Bí Mật Tình Yêu</span>
+        <h2 class="lock-title">Bức Thư Dành Riêng Cho Tri Loi</h2>
+        <p class="lock-subtitle">Nhập mật mã là ngày tụi mình chính thức quen nhau để mở bức thư tình yêu của Jun nhé...</p>
+      </div>
+
+      <form class="lock-form" id="lock-form" autocomplete="off" onsubmit="return false;">
+        <div class="lock-input-group">
+          <input 
+            type="text" 
+            id="lock-passcode-input" 
+            class="lock-input" 
+            placeholder="Nhập ngày kỷ niệm..." 
+            inputmode="numeric" 
+            maxlength="12"
+            autofocus 
+          />
+          <button type="submit" class="btn-unlock" id="btn-unlock">
+            <span>Mở Khóa</span>
+            <span class="unlock-arrow">✨</span>
+          </button>
+        </div>
+
+        <div class="lock-feedback hidden" id="lock-feedback"></div>
+      </form>
+    </div>
+  </div>
+
   <!-- Ambient Canvas Background (Stardust & Floating Hearts) -->
   <canvas id="ambient-canvas"></canvas>
 
